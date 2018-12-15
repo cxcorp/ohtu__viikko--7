@@ -9,9 +9,9 @@ public class RPSPlayerVsPlayer {
     public void play() {
         Judge judge = new Judge();
 
-        System.out.print("Ensimmäisen pelaajan move: ");
+        System.out.print("Ensimmäisen pelaajan siirto: ");
         RPSMove playerOneMove = RPSMove.fromString(scanner.nextLine());
-        System.out.print("Toisen pelaajan move: ");
+        System.out.print("Toisen pelaajan siirto: ");
         RPSMove playerTwoMove = RPSMove.fromString(scanner.nextLine());
 
         while (playerOneMove != null && playerTwoMove != null) {
@@ -19,10 +19,10 @@ public class RPSPlayerVsPlayer {
             System.out.println(judge);
             System.out.println();
 
-            System.out.print("Ensimmäisen pelaajan move: ");
+            System.out.print("Ensimmäisen pelaajan siirto: ");
             playerOneMove = RPSMove.fromString(scanner.nextLine());
 
-            System.out.print("Toisen pelaajan move: ");
+            System.out.print("Toisen pelaajan siirto: ");
             playerTwoMove = RPSMove.fromString(scanner.nextLine());
         }
 

@@ -10,7 +10,7 @@ public class RPSAiPlayer {
         Judge judge = new Judge();
         AiPlayer aiPlayer = new AiPlayer();
 
-        System.out.print("Ensimmäisen pelaajan move: ");
+        System.out.print("Ensimmäisen pelaajan siirto: ");
         RPSMove playerOneMove = RPSMove.fromString(scanner.nextLine());
         RPSMove playerTwoMove = aiPlayer.getNextMove();
         System.out.println("Tietokone valitsi: " + playerTwoMove);
@@ -21,7 +21,7 @@ public class RPSAiPlayer {
             System.out.println(judge);
             System.out.println();
 
-            System.out.print("Ensimmäisen pelaajan move: ");
+            System.out.print("Ensimmäisen pelaajan siirto: ");
             playerOneMove = RPSMove.fromString(scanner.nextLine());
 
             playerTwoMove = aiPlayer.getNextMove();
