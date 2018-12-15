@@ -1,8 +1,8 @@
-package ohtu.kivipaperisakset;
+package ohtu.rockpaperscissors;
 
 import java.util.Scanner;
 
-public class Paaohjelma {
+public class Main {
 
     private static final Scanner scanner = new Scanner(System.in);
 
@@ -15,19 +15,19 @@ public class Paaohjelma {
                 + "\n (c) parannettua tekoälyä vastaan"
                 + "\nmuilla valinnoilla lopetataan");
 
-            String vastaus = scanner.nextLine();
-            if (vastaus.endsWith("a")) {
+            String move = scanner.nextLine();
+            if (move.endsWith("a")) {
                 System.out.println("peli loppuu kun pelaaja antaa virheellisen siirron eli jonkun muun kuin k, p tai s");
-                KPSPelaajaVsPelaaja kaksinpeli = new KPSPelaajaVsPelaaja();
-                kaksinpeli.pelaa();
-            } else if (vastaus.endsWith("b")) {
+                RPSPlayerVsPlayer pvp = new RPSPlayerVsPlayer();
+                pvp.play();
+            } else if (move.endsWith("b")) {
                 System.out.println("peli loppuu kun pelaaja antaa virheellisen siirron eli jonkun muun kuin k, p tai s");
-                KPSTekoaly yksinpeli = new KPSTekoaly();
-                yksinpeli.pelaa();
-            } else if (vastaus.endsWith("c")) {
+                RPSAiPlayer singlePlayer = new RPSAiPlayer();
+                singlePlayer.play();
+            } else if (move.endsWith("c")) {
                 System.out.println("peli loppuu kun pelaaja antaa virheellisen siirron eli jonkun muun kuin k, p tai s");
-                KPSParempiTekoaly pahaYksinpeli = new KPSParempiTekoaly();
-                pahaYksinpeli.pelaa();
+                RPSImprovedAiPlayer difficultSinglePlayer = new RPSImprovedAiPlayer();
+                difficultSinglePlayer.play();
             } else {
                 break;
             }
