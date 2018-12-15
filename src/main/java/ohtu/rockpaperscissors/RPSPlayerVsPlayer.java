@@ -10,28 +10,24 @@ public class RPSPlayerVsPlayer {
         Judge judge = new Judge();
 
         System.out.print("Ensimmäisen pelaajan move: ");
-        String playerOneMove = scanner.nextLine();
+        RPSMove playerOneMove = RPSMove.fromString(scanner.nextLine());
         System.out.print("Toisen pelaajan move: ");
-        String playerTwoMove = scanner.nextLine();
+        RPSMove playerTwoMove = RPSMove.fromString(scanner.nextLine());
 
-        while (isValidMove(playerOneMove) && isValidMove(playerTwoMove)) {
+        while (playerOneMove != null && playerTwoMove != null) {
             judge.recordMoves(playerOneMove, playerTwoMove);
             System.out.println(judge);
             System.out.println();
 
             System.out.print("Ensimmäisen pelaajan move: ");
-            playerOneMove = scanner.nextLine();
+            playerOneMove = RPSMove.fromString(scanner.nextLine());
 
             System.out.print("Toisen pelaajan move: ");
-            playerTwoMove = scanner.nextLine();
+            playerTwoMove = RPSMove.fromString(scanner.nextLine());
         }
 
         System.out.println();
         System.out.println("Kiitos!");
         System.out.println(judge);
-    }
-
-    private static boolean isValidMove(String move) {
-        return "k".equals(move) || "p".equals(move) || "s".equals(move);
     }
 }

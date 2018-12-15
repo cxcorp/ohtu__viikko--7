@@ -8,20 +8,16 @@ public class AiPlayer {
         move = 0;
     }
 
-    public String getNextMove() {
+    public RPSMove getNextMove() {
         move++;
         move = move % 3;
 
         if (move == 0) {
-            return "k";
+            return RPSMove.Rock;
         } else if (move == 1) {
-            return "p";
+            return RPSMove.Paper;
         } else {
-            return "s";
+            return RPSMove.Scissors;
         }
-    }
-
-    public void addOpponentsMove(String move) {
-        // do nothing
     }
 }

@@ -11,33 +11,25 @@ public class RPSAiPlayer {
         AiPlayer aiPlayer = new AiPlayer();
 
         System.out.print("Ensimmäisen pelaajan move: ");
-        String playerOneMove = scanner.nextLine();
-        String playerTwoMove;
-
-        playerTwoMove = aiPlayer.getNextMove();
+        RPSMove playerOneMove = RPSMove.fromString(scanner.nextLine());
+        RPSMove playerTwoMove = aiPlayer.getNextMove();
         System.out.println("Tietokone valitsi: " + playerTwoMove);
 
 
-        while (isValidMove(playerOneMove) && isValidMove(playerTwoMove)) {
+        while (playerOneMove != null && playerTwoMove != null) {
             judge.recordMoves(playerOneMove, playerTwoMove);
             System.out.println(judge);
             System.out.println();
 
             System.out.print("Ensimmäisen pelaajan move: ");
-            playerOneMove = scanner.nextLine();
+            playerOneMove = RPSMove.fromString(scanner.nextLine());
 
             playerTwoMove = aiPlayer.getNextMove();
             System.out.println("Tietokone valitsi: " + playerTwoMove);
-            aiPlayer.setNextMove(playerOneMove);
-
         }
 
         System.out.println();
         System.out.println("Kiitos!");
         System.out.println(judge);
-    }
-
-    private static boolean isValidMove(String move) {
-        return "k".equals(move) || "p".equals(move) || "s".equals(move);
     }
 }

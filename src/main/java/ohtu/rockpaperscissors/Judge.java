@@ -13,7 +13,7 @@ public class Judge {
         this.draws = 0;
     }
 
-    public void recordMoves(String playerOneMove, String playerTwoMove) {
+    public void recordMoves(RPSMove playerOneMove, RPSMove playerTwoMove) {
         if (isDraw(playerOneMove, playerTwoMove)) {
             draws++;
         } else if (firstPlayerWins(playerOneMove, playerTwoMove)) {
@@ -23,20 +23,20 @@ public class Judge {
         }
     }
 
-    private static boolean isDraw(String firstMove, String secondMove) {
-        if (firstMove.equals(secondMove)) {
+    private static boolean isDraw(RPSMove firstMove, RPSMove secondMove) {
+        if (firstMove == secondMove) {
             return true;
         }
 
         return false;
     }
 
-    private static boolean firstPlayerWins(String firstMove, String secondMove) {
-        if ("k".equals(firstMove) && "s".equals(secondMove)) {
+    private static boolean firstPlayerWins(RPSMove firstMove, RPSMove secondMove) {
+        if (firstMove == RPSMove.Rock && secondMove == RPSMove.Scissors) {
             return true;
-        } else if ("s".equals(firstMove) && "p".equals(secondMove)) {
+        } else if (firstMove == RPSMove.Scissors && secondMove == RPSMove.Paper) {
             return true;
-        } else if ("p".equals(firstMove) && "k".equals(secondMove)) {
+        } else if (firstMove == RPSMove.Paper && secondMove == RPSMove.Rock) {
             return true;
         }
 
