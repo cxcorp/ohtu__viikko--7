@@ -1,45 +1,30 @@
 package ohtu.rockpaperscissors.logic;
 
-public class Judge {
+public class Game {
 
     private final Scoreboard scoreboard;
+    private final Rules rules;
 
-    public Judge() {
-        this(new Scoreboard());
+    public Game() {
+        this(new Scoreboard(), new Rules());
     }
 
-    Judge(Scoreboard scoreboard) {
+    Game(Scoreboard scoreboard, Rules rules) {
         this.scoreboard = scoreboard;
+        this.rules = rules;
     }
 
-    public void recordMoves(RPSMove playerOneMove, RPSMove playerTwoMove) {
-        if (isDraw(playerOneMove, playerTwoMove)) {
+    public void playRound(RPSMove playerOneMove, RPSMove playerTwoMove) {
+        if (rules.isDraw(playerOneMove, playerTwoMove)) {
             scoreboard.addDraw();
-        } else if (firstPlayerWins(playerOneMove, playerTwoMove)) {
+            return;
+        }
+
+        if (rules.isWinForFirstPlayer(playerOneMove, playerTwoMove)) {
             scoreboard.addWinForPlayerOne();
         } else {
             scoreboard.addWinForPlayerTwo();
         }
-    }
-
-    private static boolean isDraw(RPSMove firstMove, RPSMove secondMove) {
-        if (firstMove == secondMove) {
-            return true;
-        }
-
-        return false;
-    }
-
-    private static boolean firstPlayerWins(RPSMove firstMove, RPSMove secondMove) {
-        if (firstMove == RPSMove.Rock && secondMove == RPSMove.Scissors) {
-            return true;
-        } else if (firstMove == RPSMove.Scissors && secondMove == RPSMove.Paper) {
-            return true;
-        } else if (firstMove == RPSMove.Paper && secondMove == RPSMove.Rock) {
-            return true;
-        }
-
-        return false;
     }
 
     public String toString() {
