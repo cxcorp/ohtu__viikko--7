@@ -1,25 +1,24 @@
 package ohtu.rockpaperscissors.logic;
 
-// Judge keeps track of the players' scores and the amount of draws
 public class Judge {
 
-    private int playerOneScore;
-    private int playerTwoScore;
-    private int draws;
+    private final Scoreboard scoreboard;
 
     public Judge() {
-        this.playerOneScore = 0;
-        this.playerTwoScore = 0;
-        this.draws = 0;
+        this(new Scoreboard());
+    }
+
+    Judge(Scoreboard scoreboard) {
+        this.scoreboard = scoreboard;
     }
 
     public void recordMoves(RPSMove playerOneMove, RPSMove playerTwoMove) {
         if (isDraw(playerOneMove, playerTwoMove)) {
-            draws++;
+            scoreboard.addDraw();
         } else if (firstPlayerWins(playerOneMove, playerTwoMove)) {
-            playerOneScore++;
+            scoreboard.addWinForPlayerOne();
         } else {
-            playerTwoScore++;
+            scoreboard.addWinForPlayerTwo();
         }
     }
 
@@ -44,8 +43,11 @@ public class Judge {
     }
 
     public String toString() {
-        String s = "Pelitilanne: " + playerOneScore + " - " + playerTwoScore + "\n"
-            + "Tasapelit: " + draws;
-        return s;
+        return String.format(
+            "Pelitilanne: %d - %d\nTasapelit: %d\n",
+            scoreboard.getPlayerOneScore(),
+            scoreboard.getPlayerTwoScore(),
+            scoreboard.getDraws()
+        );
     }
 }
