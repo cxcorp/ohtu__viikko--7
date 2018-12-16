@@ -1,6 +1,9 @@
 package ohtu.rockpaperscissors;
 
 import java.util.Scanner;
+import ohtu.rockpaperscissors.logic.ai.PredictingAiPlayer;
+import ohtu.rockpaperscissors.logic.Judge;
+import ohtu.rockpaperscissors.logic.RPSMove;
 
 public class RPSImprovedAiPlayer {
 
@@ -8,7 +11,7 @@ public class RPSImprovedAiPlayer {
 
     public void play() {
         Judge judge = new Judge();
-        ImprovedAiPlayer aiPlayer = new ImprovedAiPlayer(20);
+        PredictingAiPlayer aiPlayer = new PredictingAiPlayer(20);
 
         System.out.print("Ensimmäisen pelaajan siirto: ");
         RPSMove playerOneMove = RPSMove.fromString(scanner.nextLine());

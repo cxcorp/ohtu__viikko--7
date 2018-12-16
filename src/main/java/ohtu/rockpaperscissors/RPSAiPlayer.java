@@ -1,6 +1,9 @@
 package ohtu.rockpaperscissors;
 
 import java.util.Scanner;
+import ohtu.rockpaperscissors.logic.ai.SimpleAiPlayer;
+import ohtu.rockpaperscissors.logic.Judge;
+import ohtu.rockpaperscissors.logic.RPSMove;
 
 public class RPSAiPlayer {
 
@@ -8,7 +11,7 @@ public class RPSAiPlayer {
 
     public void play() {
         Judge judge = new Judge();
-        AiPlayer aiPlayer = new AiPlayer();
+        SimpleAiPlayer aiPlayer = new SimpleAiPlayer();
 
         System.out.print("Ensimmäisen pelaajan siirto: ");
         RPSMove playerOneMove = RPSMove.fromString(scanner.nextLine());

@@ -1,4 +1,4 @@
-package ohtu.rockpaperscissors;
+package ohtu.rockpaperscissors.logic;
 
 // Judge keeps track of the players' scores and the amount of draws
 public class Judge {

@@ -1,6 +1,8 @@
 package ohtu.rockpaperscissors;
 
 import java.util.Scanner;
+import ohtu.rockpaperscissors.logic.Judge;
+import ohtu.rockpaperscissors.logic.RPSMove;
 
 public class RPSPlayerVsPlayer {
 

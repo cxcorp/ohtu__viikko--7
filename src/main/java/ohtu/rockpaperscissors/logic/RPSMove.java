@@ -1,4 +1,4 @@
-package ohtu.rockpaperscissors;
+package ohtu.rockpaperscissors.logic;
 
 import java.util.HashMap;
 import java.util.Map;
