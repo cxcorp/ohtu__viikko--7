@@ -7,7 +7,7 @@ import ohtu.rockpaperscissors.logic.RPSMove;
  * An AI player which predicts the next move based on the player's previous
  * moves.
  */
-public class PredictingAiPlayer {
+public class PredictingAiPlayer implements AiPlayer {
     private final MovePredictor predictor;
 
     public PredictingAiPlayer(int memorySize) {
@@ -19,7 +19,7 @@ public class PredictingAiPlayer {
         this.predictor = predictor;
     }
 
-    public void addOpponentsMove(RPSMove move) {
+    public void handleOpponentsMove(RPSMove move) {
         predictor.addPlayedMove(move);
     }
 

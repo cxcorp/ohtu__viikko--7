@@ -1,7 +1,7 @@
 package ohtu.rockpaperscissors;
 
 import java.util.Scanner;
-import ohtu.rockpaperscissors.logic.Judge;
+import ohtu.rockpaperscissors.logic.Game;
 import ohtu.rockpaperscissors.logic.RPSMove;
 
 public class RPSPlayerVsPlayer {
@@ -9,7 +9,7 @@ public class RPSPlayerVsPlayer {
     private static final Scanner scanner = new Scanner(System.in);
 
     public void play() {
-        Judge judge = new Judge();
+        Game game = new Game();
 
         System.out.print("Ensimmäisen pelaajan siirto: ");
         RPSMove playerOneMove = RPSMove.fromString(scanner.nextLine());
@@ -17,8 +17,8 @@ public class RPSPlayerVsPlayer {
         RPSMove playerTwoMove = RPSMove.fromString(scanner.nextLine());
 
         while (playerOneMove != null && playerTwoMove != null) {
-            judge.recordMoves(playerOneMove, playerTwoMove);
-            System.out.println(judge);
+            game.playRound(playerOneMove, playerTwoMove);
+            System.out.println(game);
             System.out.println();
 
             System.out.print("Ensimmäisen pelaajan siirto: ");
@@ -30,6 +30,6 @@ public class RPSPlayerVsPlayer {
 
         System.out.println();
         System.out.println("Kiitos!");
-        System.out.println(judge);
+        System.out.println(game);
     }
 }

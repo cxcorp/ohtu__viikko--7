@@ -5,7 +5,7 @@ import ohtu.rockpaperscissors.logic.RPSMove;
 /**
  * A simple AI which gets the next move directly from an array.
  */
-public class SimpleAiPlayer {
+public class SimpleAiPlayer implements AiPlayer {
 
     private final RPSMove[] moves;
     private int currentMove;
@@ -23,6 +23,10 @@ public class SimpleAiPlayer {
     public RPSMove getNextMove() {
         goToNextMove();
         return moves[currentMove];
+    }
+
+    @Override
+    public void handleOpponentsMove(RPSMove move) {
     }
 
     private void goToNextMove() {
